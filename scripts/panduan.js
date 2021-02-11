@@ -1,21 +1,19 @@
 import { baseUrl } from "./routes.js";
 
-class GayaBelajar {
-    static tampilDataGayaBelajar() {
-        const dayaGayaBelajarElement = document.querySelector("#dataGayaBelajar");
-        let dummy = '';
-        fetch(`${baseUrl}soal_VAK`)
+class Panduan {
+    static tampilDataPanduan() {
+        const dataPanduanElement = document.querySelector("#dataPanduan");
+        let dummy = "";
+        let nomor = 1;
+        fetch(`${baseUrl}panduan`)
             .then((response) => response.json())
             .then((result) => {
                 result.forEach((element) => {
-                    console.log(element);
                     dummy += `
                         <tr>
-                            <td>${element.nomor_soal}</td>
-                            <td>${element.soal}</td>
-                            <td>${element.pilihan1}</td>
-                            <td>${element.pilihan2}</td>
-                            <td>${element.pilihan3}</td>
+                            <td>${nomor}</td>
+                            <td>${element.judul_panduan}</td>
+                            <td>${element.deskripsi}</td>
                             <td>
                                 <a class="waves-effect waves-light btn yellow darken-2"><i class="material-icons left">edit</i>Ubah</a>
                             </td>
@@ -24,10 +22,11 @@ class GayaBelajar {
                             </td>
                         </tr
                     `;
+                    nomor++;
                 });
-                dayaGayaBelajarElement.innerHTML = dummy;
+                dataPanduanElement.innerHTML = dummy;
             });
     }
 }
 
-export default GayaBelajar;
+export default Panduan;

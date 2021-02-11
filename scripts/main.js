@@ -1,6 +1,6 @@
 import { Routes } from "./routes.js";
-import Siswa from "./siswa.js";
-
+let page = location.hash.substr(1);
+if (page == "") page = "siswa";
 class Main {
     static getMainElement = () => {
         const siswa = document.querySelector("#siswaNav");
@@ -10,11 +10,11 @@ class Main {
         const preTest = document.querySelector("#preTestNav");
         const postTest = document.querySelector("#postTestNav");
         const route = new Routes();
-        // const siswa = new Siswa();
+        console.log(page);
+        route.loadPage(page);
 
         siswa.addEventListener("click", () => {
             route.loadPage("siswa");
-            Siswa.tampilDataSiswa();
         });
         misi.addEventListener("click", () => {
             route.loadPage("misi");
@@ -33,5 +33,7 @@ class Main {
         });
     };
 }
+
+Main.getMainElement();
 
 export default Main;

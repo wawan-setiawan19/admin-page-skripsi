@@ -1,7 +1,11 @@
+import GayaBelajar from "./gaya-belajar.js";
 import Main from "./main.js";
+import Misi from "./misi.js";
+import Panduan from "./panduan.js";
 import Siswa from "./siswa.js";
 
 const baseUrl = "http://127.0.0.1:8000/api/";
+
 class Routes {
     loadPage = (page) => {
         const xhttp = new XMLHttpRequest();
@@ -11,9 +15,12 @@ class Routes {
                 const content = document.querySelector("#body-content");
                 if (xhttp.status === 200) {
                     content.innerHTML = xhttp.responseText;
-                    Main.getMainElement();
-                    if(page === 'siswa') Siswa.tampilDataSiswa();
+                    if (page === "siswa") Siswa.tampilDataSiswa();
+                    if (page === "misi") Misi.tampilDataMisi();
+                    if (page === "panduan") Panduan.tampilDataPanduan();
+                    if (page === "gaya-belajar") GayaBelajar.tampilDataGayaBelajar();
                 }
+                // Main.getMainElement();
             }
         };
 
@@ -22,9 +29,5 @@ class Routes {
     };
 }
 
-let page = location.hash.substr(1);
-if (page == "") page = "siswa";
-const route = new Routes();
-route.loadPage(page);
 
-export { Routes, baseUrl }; 
+export { Routes, baseUrl };

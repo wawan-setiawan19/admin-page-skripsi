@@ -5,5 +5,5 @@ import siswa from './scripts/siswa.js'
 
 document.addEventListener("DOMContentLoaded",()=>{
     M.AutoInit();
-    new Routes;
+    
 });
