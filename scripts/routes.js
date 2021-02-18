@@ -5,7 +5,7 @@ import Panduan from "./panduan.js";
 import Siswa from "./siswa.js";
 
 // const baseUrl = "http://127.0.0.1:8000/api/";
-const baseUrl = "http://d2186d62a231.ngrok.io/api/";
+const baseUrl = "https://d2186d62a231.ngrok.io/api/";
 
 class Routes {
     static loadPage = (page) => {
