@@ -4,10 +4,11 @@ import Misi from "./misi.js";
 import Panduan from "./panduan.js";
 import Siswa from "./siswa.js";
 
-const baseUrl = "http://127.0.0.1:8000/api/";
+// const baseUrl = "http://127.0.0.1:8000/api/";
+const baseUrl = "http://d2186d62a231.ngrok.io/api/";
 
 class Routes {
-    loadPage = (page) => {
+    static loadPage = (page) => {
         const xhttp = new XMLHttpRequest();
 
         xhttp.onreadystatechange = () => {
@@ -19,8 +20,8 @@ class Routes {
                     if (page === "misi") Misi.tampilDataMisi();
                     if (page === "panduan") Panduan.tampilDataPanduan();
                     if (page === "gaya-belajar") GayaBelajar.tampilDataGayaBelajar();
+                    if (page === "form-gaya-belajar") GayaBelajar.simpanDataGayaBelajar();
                 }
-                // Main.getMainElement();
             }
         };
 
@@ -28,6 +29,5 @@ class Routes {
         xhttp.send();
     };
 }
-
 
 export { Routes, baseUrl };

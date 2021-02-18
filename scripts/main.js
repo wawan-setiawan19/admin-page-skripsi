@@ -9,27 +9,26 @@ class Main {
         const gayaBelajar = document.querySelector("#gayaBelajarNav");
         const preTest = document.querySelector("#preTestNav");
         const postTest = document.querySelector("#postTestNav");
-        const route = new Routes();
-        console.log(page);
-        route.loadPage(page);
+
+        Routes.loadPage(page);
 
         siswa.addEventListener("click", () => {
-            route.loadPage("siswa");
+            Routes.loadPage("siswa");
         });
         misi.addEventListener("click", () => {
-            route.loadPage("misi");
+            Routes.loadPage("misi");
         });
         panduan.addEventListener("click", () => {
-            route.loadPage("panduan");
+            Routes.loadPage("panduan");
         });
         gayaBelajar.addEventListener("click", () => {
-            route.loadPage("gaya-belajar");
+            Routes.loadPage("gaya-belajar");
         });
         preTest.addEventListener("click", () => {
-            route.loadPage("pre-test");
+            Routes.loadPage("pre-test");
         });
         postTest.addEventListener("click", () => {
-            route.loadPage("post-test");
+            Routes.loadPage("post-test");
         });
     };
 }
